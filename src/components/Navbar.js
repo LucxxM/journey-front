@@ -1,36 +1,44 @@
 import React from "react";
-import "./Navbar.css"
+import "./Navbar.css";
+import { useEffect } from "react";
 
-  const sectionClickable = document.querySelector('#sectionTest');
-  const linkClickables = document.querySelectorAll('a');
-  const liRelatives = document.querySelectorAll('ul');
+  const scriptforNavbar = () => {
+    const sectionClickable = document.querySelector('#sectionTest');
+    const linkClickables = document.querySelectorAll('a');
+    const liRelatives = document.querySelectorAll('ul');
+    
+    sectionClickable.addEventListener('click', function(e) {
+        if (e.target.classList.contains('clickable')) {
+        }else {
+            for (let i=0 ; i<liRelatives.length ; i++) {    
+                if (liRelatives[i].id !== ""){
+                    liRelatives[i].classList.add('display-none');
+                }
+            }
+        }
+    });
+    
+    linkClickables.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            for (let i=0 ; i<liRelatives.length ; i++) {    
+                if (liRelatives[i].id !== ""){
+                    liRelatives[i].classList.add('display-none');
+                    link.parentElement.parentElement.classList.remove('display-none');
+                }
+            }
+            link.nextElementSibling.classList.remove('display-none');
+        });   
+    });
+  }
+
   
-  sectionClickable.addEventListener('click', function(e) {
-      if (e.target.classList.contains('clickable')) {
-      }else {
-          for (let i=0 ; i<liRelatives.length ; i++) {    
-              if (liRelatives[i].id !== ""){
-                  liRelatives[i].classList.add('display-none');
-              }
-          }
-      }
-  });
-  
-  linkClickables.forEach(link => {
-      link.addEventListener('click', function(e) {
-          e.preventDefault();
-          for (let i=0 ; i<liRelatives.length ; i++) {    
-              if (liRelatives[i].id !== ""){
-                  liRelatives[i].classList.add('display-none');
-                  link.parentElement.parentElement.classList.remove('display-none');
-              }
-          }
-          link.nextElementSibling.classList.remove('display-none');
-      });   
-  });
-
-const Navbar = () => {
-
+  const Navbar = () => {
+    
+    useEffect(() => {
+      scriptforNavbar();
+    } 
+    , []);
     return (
     <section id="sectionTest">
       <nav id="navbar">
@@ -123,7 +131,7 @@ const Navbar = () => {
               </li>
             </ul>
            </li>
-           <li  className="liRelative">
+           <li className="liRelative">
             <a title="img"><img className="clickable" src="./icons/euro.png" alt="" /></a>
             <ul className="dropup_menu fourth display-none" id="ulToDisplay4">
               <li className="liRelative">
@@ -186,7 +194,8 @@ const Navbar = () => {
       </nav>
     </section>
     );
-    
     }
+
+
 
     export default Navbar;
