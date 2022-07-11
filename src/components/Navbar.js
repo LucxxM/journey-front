@@ -1,7 +1,36 @@
 import React from "react";
 import "./Navbar.css"
 
+const sectionClickable = document.querySelector('#sectionTest');
+  const linkClickables = document.querySelectorAll('a');
+  const liRelatives = document.querySelectorAll('ul');
+  
+  sectionClickable.addEventListener('click', function(e) {
+      if (e.target.classList.contains('clickable')) {
+      }else {
+          for (let i=0 ; i<liRelatives.length ; i++) {    
+              if (liRelatives[i].id !== ""){
+                  liRelatives[i].classList.add('display-none');
+              }
+          }
+      }
+  });
+  
+  linkClickables.forEach(link => {
+      link.addEventListener('click', function(e) {
+          e.preventDefault();
+          for (let i=0 ; i<liRelatives.length ; i++) {    
+              if (liRelatives[i].id !== ""){
+                  liRelatives[i].classList.add('display-none');
+                  link.parentElement.parentElement.classList.remove('display-none');
+              }
+          }
+          link.nextElementSibling.classList.remove('display-none');
+      });   
+  });
+
 const Navbar = () => {
+
     return (
     <section id="sectionTest">
       <nav id="navbar">
@@ -157,6 +186,7 @@ const Navbar = () => {
       </nav>
     </section>
     );
+    
     }
 
     export default Navbar;
