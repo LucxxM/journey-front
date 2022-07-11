@@ -103,7 +103,7 @@ const Navbar = () => {
                     <li><img class="clickable" src="./icones/Sans titre.png" alt="" /></li>
                     <li><img class="clickable" src="./icones/Sans titre.png" alt="" /></li>
                     <li><img class="clickable" src="./icones/Sans titre.png" alt="" /></li>
-                </ul> /
+                </ul>
               </li>
               <li class="liRelative">
                 <a title="img"><img class="clickable" src="./icones/Sans titre.png" alt="" /></a>
