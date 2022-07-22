@@ -50,7 +50,11 @@ const Map = () => {
                   div.style.flexDirection = "column";
                   div.style.padding = "20px";
                   div.style.color = "white";
-                  div.setAttribute("draggable", "true");
+                  div.style.position = "absolute";
+                  div.style.zIndex = "1";
+                  div.style.top = "50%";
+                  div.style.left = "50%";
+                  div.style.transform = "translate(-50%, -50%)";
                   
                   div.innerHTML = `<p>${country.getAttribute("data-pays")}</p>
                                               <p>${country.getAttribute(
