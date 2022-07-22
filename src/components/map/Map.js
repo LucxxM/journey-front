@@ -38,24 +38,6 @@ const Map = () => {
                   
                   const div = document.createElement("div");
                   div.classList.add("map-test");
-                  
-                  div.style.width = "100px";
-                  div.style.height = "150px";
-                  div.style.borderRadius = "10px";
-                  div.style.border = "1px solid gold";
-                  div.style.backgroundColor = "black";
-                  div.style.display = "flex";
-                  div.style.justifyContent = "center";
-                  div.style.alignItems = "center";
-                  div.style.flexDirection = "column";
-                  div.style.padding = "20px";
-                  div.style.color = "white";
-                  div.style.position = "absolute";
-                  div.style.zIndex = "1";
-                  div.style.top = "50%";
-                  div.style.left = "50%";
-                  div.style.transform = "translate(-50%, -50%)";
-                  
                   div.innerHTML = `<p>${country.getAttribute("data-pays")}</p>
                                               <p>${country.getAttribute(
                                                   "data-continent"
